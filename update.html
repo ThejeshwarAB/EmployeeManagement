@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<head>
+   <title>Agaram|UpdateProfile</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" type="text/css" href="public/style.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="public/style.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="/css/bootstrap.min.css">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+   <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+   <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+</head>
+<body>
+   <nav class="navbar navbar-light bg-light shadow p-3 mb-5 bg-white rounded" style="padding: 15px; position: fixed; top: 0; width: 100%">
+      <div class="navbar-brand mx-auto">
+         <img alt="Logo" width="200" height="30" src="images/Logo.png">
+      </div>
+      <!--  <div class="d-flex justify-content-center" align="center"><img alt="Logo" width="200" height="30" src="public/images/Logo.png"></div> -->
+      <!-- <span class="navbar-brand">Heading</span> -->
+   </nav>
+   <div class="container text-center col-6">
+      <nav>
+         <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Update details</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Update password</a>
+         </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="container text col-6">
+               <form class="form-style" method="POST" action="/updateprofile" id="profile">
+                  <h1 class="h3 mb-3 font-weight-normal">Update details</h1>
+                  <br>
+                  <label for="inputUsername">Username</label>
+                  <input type="text" id="newUsername" class="form-control" placeholder="Username" required autofocus><br>
+                  <label for="inputEmail">Email</label>
+                  <input type="email" id="newEmail" class="form-control" placeholder="Email" required><br>
+                  <label for="inputMobileno">Mobile No</label>
+                  <input type="number" id="newMobile" class="form-control" placeholder="Mobile No" required><br>
+                  <label for="address" >Address</label>
+                  <input type="text" id="address" name="address" class="form-control" placeholder="Address" required><br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Update profile</button>
+               </form>
+            </div>
+         </div>
+         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="container text-center col-6">
+               <form class="form-style" method="POST"  action="/updatepassword" id="password">
+                  <h1 class="h3 mb-3 font-weight-normal">Update password</h1>
+                  <br>
+                  <label for="inputNewPassword">Old Password</label>
+                  <input type="password" id="oldPassword" class="form-control" placeholder="Old password" required autofocus><br>
+                  <label for="inputNewPassword">New Password</label>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="New password" required autofocus><br>
+                  <label for="ConfirmNewPassword">Confirm New Password</label>
+                  <input type="password" id="ConfirmNewPassword" class="form-control" placeholder="Confirm new password" required>
+                  <br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Update password</button>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div class="row fixed-top col-12">
+         <div class="text-left col-6"><button id="back" class="btn btn-secondary" style="margin: 15px" onclick="window.history.go(-1)">Back</button></div>
+         <div class="text-right col-6"><button id="logout" class="btn btn-danger" style="margin: 15px">Logout</button></div>
+      </div>
+      <div class="myAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Re-Enter</strong>The Values
+      </div>
+      <div class="mysAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Successfully</strong>Work Edited!!
+      </div>
+      <div class="msAlert-top alert alert-danger fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Re-Type</strong>Your Number Correctly!!
+      </div>
+      <div class="outAlert-top alert  fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Logout</strong>!!
+      </div>
+   </div>
+   <footer class="page-footer font-small bg-light shadow-sm bg-white rounded" style="position: fixed; bottom: 0; width: 100%">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+         <span class="material-icons" style="font-size: 15px;">call</span>
+         <span>+91-44-26580262</span>
+         &nbsp &nbsp
+         <span class="material-icons" style="font-size: 15px;">email</span>
+         <span>contact@agaramtechnologies.com</span>
+      </div>
+      <!-- Copyright -->
+   </footer>
+</body>
+<script>
+   function myAlert(){
+      $(".myAlert-top").show();
+      setTimeout(function(){
+      event.preventDefault()
+      $(".myAlert-top").fadeTo(0, 250).slideUp(250, function(){
+      $(".myAlert-top").slideUp(250);
+      })
+      }, 2000);
+    }
+   
+    function mysAlert(){
+      //event.preventDefault()
+      $(".mysAlert-top").show();
+      setTimeout(function(){
+      $(".mysAlert-top").fadeTo(0, 250).slideUp(250, function(){
+        $(".mysAlert-top").slideUp(250);
+      })
+      }, 2000);
+    }
+    
+    function msAlert(){
+      //event.preventDefault()
+      $(".msAlert-top").show();
+      setTimeout(function(){
+      $(".msAlert-top").fadeTo(0, 250).slideUp(250, function(){
+        $(".msAlert-top").slideUp(250);
+      })
+      }, 2000);
+    }
+   function outAlert(){
+      //event.preventDefault()
+      $(".outAlert-top").show();
+      setTimeout(function(){
+      $(".outAlert-top").fadeTo(0, 250).slideUp(250, function(){
+        $(".outAlert-top").slideUp(250);
+      })
+      }, 2000);
+    }
+      window.onload = function(event){
+      event.preventDefault()
+      url = '/changes'
+      var posting = $.post( url )
+      posting.done(function(data){
+        document.getElementById("newUsername").value = data["user"]
+        document.getElementById("newEmail").value = data["mail"]
+        document.getElementById("newMobile").value = data["mobile"]
+        document.getElementById("address").value = data["address"]
+      })
+    }
+   
+   
+    $("#profile").submit(function(event){
+      event.preventDefault()
+       if($('#newMobile').val().length!=10){  //mobile number validation #sai,tamil
+    console.log($('#newMobile').val());
+    console.log($('#newMobile').val().length);
+    //alert('Not a valid  number')
+    msAlert()
+    setTimeout(() => { console.log("Alert called"); }, 2000);
+    return false;
+       }
+      alert("Updated")
+      var $form = $(this)
+      url = $form.attr('action')
+      url = '/updateprofile'
+      var posting = $.post( url ,{user: $('#newUsername').val(), 
+        mail: $('#newEmail').val(),
+         mobile: $('#newMobile').val(),
+         address: $('#address').val(),
+    } )
+      posting.done(function(data){
+      console.log(data)
+      if(data=="ok")
+        window.history.go(-1)
+      })
+    })
+   
+    
+    $("#logout").click(function(event){
+      event.preventDefault()
+      //alert("You are logging out")//use Bootstrap alert
+      outAlert()
+      setTimeout(() => { console.log("Alert called"); }, 2000);
+      var posting = $.post("/logout",{})
+      posting.done(function(data){
+        if(data=="ok")
+        window.location.href = "/"
+      })
+    })
+   
+      $("#password").submit(function(event){
+      event.preventDefault()
+      // console.log("Updated")
+      if($('#inputPassword').val()==$('#ConfirmNewPassword').val()){
+      var $form = $(this),
+      url = $form.attr('action')
+      url = '/updatepassword'
+      var posting = $.post( url ,{newuser: $('#inputUsername').val(), newpass: $('#inputPassword').val(), oldpass: $('#oldPassword').val()} )
+      posting.done(function(data){
+      if(data=="ok")
+        window.location.href = "/"
+      else{
+        // alert("Re-enter the values")
+      myAlert()
+      setTimeout(() => { console.log("Alert called"); }, 2000);}
+      })
+      }
+      else{
+      myAlert()
+      setTimeout(() => { console.log("Alert called"); }, 2000);}
+      //alert("Re-enter the values")//use Bootstrap alert
+    })
+</script>
+</html>
+

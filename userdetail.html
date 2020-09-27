@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<head>
+   <title>Agaram|UserDetails</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/css/bootstrap.min.css">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables.css">
+   <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/css/jquery.dataTables_themeroller.css">
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.0/jquery.dataTables.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+   <!--  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+      --><script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.6/xlsx.full.min.js"> </script><!-- 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+   <link rel="stylesheet" type="text/css" href=" https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+   <nav class="navbar navbar-light bg-light shadow p-3 mb-5 bg-white rounded" style="padding: 15px; position: fixed; top: 0; width: 100%">
+      <div class="navbar-brand mx-auto">
+         <img alt="Logo" width="200" height="30" src="images/Logo.png">
+      </div>
+      <!--  <div class="d-flex justify-content-center" align="center"><img alt="Logo" width="200" height="30" src="public/images/Logo.png"></div> -->
+      <!-- <span class="navbar-brand">Heading</span> -->
+   </nav>
+   <div class="container" style="height: 80%;">
+      <div class="table-responsive justify-content-center">
+         <table class="table text-center ">
+            <table id="print" class="table table-hover">
+               <h3 class="text-center">Employee Details</h3>
+               <thead class="bg-dark text-white">
+                  <tr >
+                     <th scope="col" style ="width :20%;" >Emp ID</th>
+                     <!-- <th scope="col">Employee name</th> -->
+                     <th scope="col" style ="width :20%;">Emp Name</th>
+                     <th scope="col">Specification</th>
+                     <th scope="col">Mob. No.</th>
+                     <th scope="col">Email</th>
+                     <th scope="col">Address</th>
+                     <th scope="col">D.O.B</th>
+                     <th scope="col">D.O.J</th>
+                     <th scope="col">Edit</th>
+                     <th scope="col">Delete</th>
+                  </tr>
+               </thead>
+               <tbody id="table">
+               </tbody>
+            </table>
+         </table>
+         <input type="file" id="fileUploader" name="fileUploader" accept=".xls, .xlsx"/>
+      </div>
+      <div class="form-style">
+         <div class="row text-center">
+            <button class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#exampleModalCenter" target="_blank" style="font-size: 0.8em; height: 80%; width: 80%;">Create new user</button>
+            <br>
+         </div>
+         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLongTitle">Edit User Details</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body" style="background-color: #D3D3D3;">
+                     <form class="form-style" action="/edituseradmin" method="POST" id="edituser">
+                        <label for="editid" >Edit Empid</label>
+                        <input type="id" id="editid" name="editid" class="form-control" placeholder="Edit Employee id" required autofocus><br>
+                        <label for="editname">Username</label>
+                        <input type="username" id="editname" name="editname" class="form-control" placeholder="Edit Username" required autofocus><br>
+                        <label for="editspecific">specfication</label>
+                        <input type="text" id="editspecific" name="editspecific" class="form-control" placeholder="Specification" required><br>
+                        <label for="editmobile">MobileNo</label>
+                        <input type="number" id="editmobile" name="editmobile" class="form-control" placeholder="Edit Mobile No" required><br>
+                        <label for="editmail">MailID</label>
+                        <input type="email" id="editmail" name="editmail" class="form-control" placeholder="Edit Mail ID" required><br>
+                        <label for="editaddress">Address</label>
+                        <input type="text" id="editaddress" name="editaddress" class="form-control" placeholder="Edit Address" required><br>
+                        <div class="row">
+                           <div class="col-6">
+                              <label for="editdob">D.O.B</label>
+                              <input type="date" id="editdob" class="form-control" value="new Date()" placeholder="D.O.B" required autofocus>
+                           </div>
+                           <div class="col-6">
+                              <label for="editdoj">D.O.J</label>
+                              <input type="date" id="editdoj" class="form-control" value="new Date()" placeholder="D.O.J" required autofocus>
+                           </div>
+                        </div>
+                        </br>
+                        <!--   <label for="newPassword" class="sr-only">Password</label>
+                           <input type="password" id="newPassword" name="newPassword" class="form-control" placeholder="Password" required><br>
+                           <label for="newConfirmPassword" class="sr-only">Password</label>
+                           <input type="password" id="newConfirmPassword" name="newConfirmPassword" class="form-control" placeholder="Confirm Password" required><br>
+                           <br> -->
+                        <div class="modal-footer">
+                           <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                           <!-- <button class="btn btn-primary" type="button" onclick="check()">Click me</button> -->
+                           <button class="btn btn-primary test_btn"  type="submit" name="submit">Edit user</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="form-style">
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Enter user details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body" style="background-color: #D3D3D3;">
+                        <form class="form-style" action="/" method="POST" id="newuser">
+                           <label for="empid">Employee id</label>
+                           <input type="id" id="empid" name="empid" class="form-control" placeholder="Employee id" required autofocus><br>
+                           <label for="newUsername">Username</label>
+                           <input type="username" id="newUsername" name="newUsername" class="form-control" placeholder="Username" required autofocus><br>
+                           <label for="newMobile" >MobileNo</label>
+                           <input type="number" id="newMobile" name="newMobile" class="form-control" placeholder="Mobile No" required><br>
+                           <label for="newMail">MailID</label>
+                           <input type="email" id="newMail" name="newMail" class="form-control" placeholder="Mail ID" required><br>
+                           <label for="specific">Specfication</label>
+                           <input type="text" id="specific" name="specific" class="form-control" placeholder="Specification" required><br>
+                           <label for="address">Address</label>
+                           <input type="text" id="address" name="address" class="form-control" placeholder="Address" required><br>
+                           <div class="row">
+                              <div class="col-6">
+                                 <label for="dob">D.O.B</label>
+                                 <input type="date" id="dob" class="form-control" value="new Date()" placeholder="D.O.B" required autofocus>
+                              </div>
+                              <div class="col-6">
+                                 <label for="doj">D.O.J</label>
+                                 <input type="date" id="doj" class="form-control" value="new Date()" placeholder="D.O.J" required autofocus>
+                              </div>
+                           </div>
+                           </br>
+                           <!-- 
+                              <label for="dob">D.O.B</label>
+                              <input type="date" id="dob" class="form-control" value="new Date()" placeholder="D.O.B" required autofocus><br/>
+                              <label for="doj">D.O.J</label>
+                              <input type="date" id="doj" class="form-control" value="new Date()" placeholder="D.O.J" required autofocus><br/>
+                              -->
+                           <label for="newPassword">Password</label>
+                           <input type="password" id="newPassword" name="newPassword" class="form-control" placeholder="Password" required><br>
+                           <label for="newConfirmPassword">Confrim Password</label>
+                           <input type="password" id="newConfirmPassword" name="newConfirmPassword" class="form-control" placeholder="Confirm Password" required><br>
+                           <br>
+                           <label for="statusToggle" class="sr-only">Admin status</label>
+                           <!-- <input type="checkbox" id="adminToggle" class="form-control" checked data-toggle="toggle" data-on="Admin" data-off="User" data-width="100" data-onstyle="success" data-offstyle="primary">                  -->
+                           <!-- <div id="opt"> -->
+                           <label class="radio-inline"><input type="radio" name="optradio" value="Admin" checked> Admin </label>
+                           <label class="radio-inline"><input type="radio" name="optradio" value="User"> User </label>
+                           <!-- </div> -->
+                           <br><br>
+                           <div class="modal-footer">
+                              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                              <!-- <button class="btn btn-primary" type="button" onclick="check()">Click me</button> -->
+                              <button class="btn btn-primary test_btn" id="create" type="submit" name="submit">Add user</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row fixed-top col-12">
+            <div class="text-left col-6"><button id="back" class="btn btn-secondary" style="margin: 10px">Back</button></div>
+            <div class="text-right col-6"><button id="logout" class="btn btn-danger" style="margin: 10px">Logout</button></div>
+         </div>
+         <div class="creAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> User Created Successful
+         </div>
+      </div>
+      <div class="myAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>User!</strong>Detail Edited
+      </div>
+      <div class="mysAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Successfully</strong>User Deleted!!
+      </div>
+      <div class="outAlert-top alert  fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Log-Out</strong>!!!
+      </div>
+   </div>
+   <footer class="page-footer font-small bg-light shadow-sm bg-white rounded" style="position: fixed; bottom: 0; width: 100%">
+      <!-- Copyright -->
+      <div class="footer" style="position: absolute; right: 0;
+         bottom: 0;
+         left: 0;
+         padding: 1rem;
+         background-color:white;
+         text-align: center;
+         ">
+         <span class="material-icons" style="font-size: 15px;">call</span>
+         <span>+91-44-26580262</span>
+         &nbsp &nbsp
+         <span class="material-icons" style="font-size: 15px;">email</span>
+         <span>contact@agaramtechnologies.com</span>
+      </div>
+      <!-- Copyright -->
+   </footer>
+</body>
+<script>
+   // $(document).ready(function() {
+   //     $('#print').DataTable( {
+   //         dom: 'Bfrtip',
+   //         buttons: [
+   //             'copy', 'csv', 'excel', 'pdf', 'print'
+   //         ]
+   //     } );
+   // } );
+   
+   
+   
+    function myAlert(){
+       //event.preventDefault()
+       $(".myAlert-top").show();
+       setTimeout(function(){
+       $(".myAlert-top").fadeTo(0, 250).slideUp(250, function(){
+         $(".myAlert-top").slideUp(250);
+       })
+       }, 2000);
+     }
+   
+     function mysAlert(){
+       //event.preventDefault()
+       $(".mysAlert-top").show();
+       setTimeout(function(){
+       $(".mysAlert-top").fadeTo(0, 250).slideUp(250, function(){
+         $(".mysAlert-top").slideUp(250);
+       })
+       }, 2000);
+     }
+     function outAlert(){
+       //event.preventDefault()
+       $(".outAlert-top").show();
+       setTimeout(function(){
+       $(".outAlert-top").fadeTo(0, 250).slideUp(250, function(){
+         $(".outAlert-top").slideUp(250);
+       })
+       }, 2000);
+     }
+     function creAlert(){
+       //event.preventDefault()
+       $(".creAlert-top").show();
+       setTimeout(function(){
+       $(".creAlert-top").fadeTo(0, 250).slideUp(250, function(){
+         $(".creAlert-top").slideUp(250);
+       })
+       }, 2000);
+     }
+   
+   
+      $("#newuser").submit(function(event){
+         event.preventDefault()
+         if($('#newMobile').val().length!=10){ 
+           console.log($('#newMobile').val());
+           console.log($('#newMobile').val().length);
+           alert('Not a valid  number')
+         return false;
+         }
+         $('.close').click();    
+         if( $('#newPassword').val() == $('#newConfirmPassword').val()){
+         var admin = $("input[name = 'optradio']:checked").val()
+         var $form = $(this),
+         url = $form.attr('action')
+         var posting = $.post( url, {
+                                     empid:$('#empid').val(),
+                                     newuser: $('#newUsername').val(), 
+                                     newpass: $('#newPassword').val(),
+                                     adminStatus: Boolean(admin=="Admin"), 
+                                     newmail: $('#newMail').val(), 
+                                     newmobile: $('#newMobile').val(),
+                                     specific: $('#specific').val(),
+                                     address:$('#address').val(),
+                                     dob:$('#dob').val(),
+                                     doj:$('#doj').val(),
+                                     work: [],
+                                     workCount: 0,
+                                     // flag: 0,
+                                     })
+       posting.done(function(data){
+            if(data=="ok"){
+          // alert("New User added")
+         // $('#exampleModalCenter').modal('hide')
+          creAlert()
+          setTimeout(() => { console.log("Alert called"); }, 2000);
+           window.location.reload()}
+           })}
+       else{
+         //alert("Re-enter values")
+         reAlert()
+         setTimeout(() => { console.log("Alert called"); }, 2000);
+         }
+         })
+   
+     var userData = []
+   
+   
+     window.onload = function(event){
+       event.preventDefault()
+   
+       var url = '/fetchforadmin'
+       var posting = $.post( url )
+       posting.done(function(data){
+   
+         var table = document.getElementById("table")
+   
+         for(var i = 0; i<data.length; i++){
+            if(data[i]["articlename"]==null && data[i]["articlestatus"]==false){
+           var row = table.insertRow(0);
+           var cell10 = row.insertCell(0);
+           var cell9 = row.insertCell(0);
+           var cell8 = row.insertCell(0);
+           var cell7 = row.insertCell(0);
+           var cell6 = row.insertCell(0);
+           var cell5 = row.insertCell(0);
+           var cell4 = row.insertCell(0);
+           var cell3 = row.insertCell(0);
+           var cell2 = row.insertCell(0);
+           var cell1 = row.insertCell(0);
+           cell1.innerHTML = data[i]["empid"];
+           cell2.innerHTML = data[i]["username"];
+           cell3.innerHTML = data[i]["specific"];
+           cell4.innerHTML = data[i]["mobile"];
+           cell5.innerHTML = data[i]["mail"];
+           cell6.innerHTML = data[i]["address"];
+           cell7.innerHTML = data[i]["DOB"];
+           cell8.innerHTML = data[i]["DOJ"];
+           cell9.innerHTML ='<button type="button" style="background-color:transparent; border: none;" data-toggle="modal" data-target="#exampleModal" id="editButton"><span class="material-icons">edit</span></button>';
+           cell10.innerHTML ='<button type="button" style="background-color:transparent; border: none;" class="btn btn-primary" id="deleteButton"><span class="material-icons">delete</span></button>';
+       }}
+   
+         for(var i=0;i<data.length; i++){
+           if(data[i]["adminStatus"]==false)
+           userData.push(data[i]["username"])
+         }
+   
+         $(document).ready(function() {
+         $('#print').dataTable({
+           "bLengthChange": false,
+           "iDisplayLength": 5,
+           "columnDefs": [
+         { "width": "10%"}],
+         dom: 'Bfrtip',
+           buttons: [
+               'copy', 'excel', 'pdf'
+           ],
+         })
+        })
+       })
+   
+       $("#logout").click(function(event){
+       event.preventDefault()
+       //alert("You are logging out")//use Bootstrap alert
+       outAlert()
+       setTimeout(() => { console.log("Alert called"); }, 2000);
+       var posting = $.post("/logout",{})
+       posting.done(function(data){
+         if(data=="ok")
+         window.location.href = "/"
+       })
+     })
+       $("#back").click(function(event){
+       event.preventDefault()
+       //alert("You are logging out")//use Bootstrap alert
+       var posting = $.post("/back",{})
+       posting.done(function(data){
+         if(data=="ok")
+         window.location.href = "/admin.html"
+       })
+     })
+     }
+   
+    $("#edituser").submit(function(event){
+       event.preventDefault()
+       var $form = $(this),
+       url = $form.attr('action')
+       var posting = $.post( url, {id: $('#editid').val(),
+                                   name: $('#editname').val(),
+                                   specific: $('#editspecific').val(),
+                                   mobile: $('#editmobile').val(),  
+                                   mail: $('#editmail').val(),                      
+                                   address: $('#editaddress').val(),
+                                   doj: $('#editdoj').val(),
+                                    dob: $('#editdob').val(),
+                                 } )
+       posting.done(function(data){
+         if(data=="ok"){
+         myAlert()
+         setTimeout(() => { console.log("Alert called"); }, 2000);
+         //alert("User detail edited")
+         window.location.reload()}
+       })
+     })
+   
+     $(document).on("click","button",function(){
+         if(this.id=="deleteButton")
+         {
+         var $this = this.parentNode.parentNode.rowIndex
+         var j=0
+         event.preventDefault()
+         // var $form = $(this),
+         url = '/deleteemp'
+         var posting = $.post( url, {empid: document.getElementById("print").rows[$this].cells.item(0).innerHTML,
+                                     name: document.getElementById("print").rows[$this].cells.item(1).innerHTML
+                                     // worktype: document.getElementById("print").rows[$this].cells.item(2).innerHTML,                               
+                                     // end: document.getElementById("print").rows[$this].cells.item(3).innerHTML
+                                   } )
+         posting.done(function(data){
+         if(data=="ok"){
+         //alert("user deleted")
+         mysAlert()
+         setTimeout(() => { console.log("Alert called"); }, 2000);
+         window.location.reload()}
+         })
+         }
+   
+    if(this.id=="editButton")
+         {
+           // alert("hello")
+           var $this = this.parentNode.parentNode.rowIndex
+           document.getElementById('editid').value = document.getElementById("print").rows[$this].cells.item(0).innerHTML
+           document.getElementById('editname').value = document.getElementById("print").rows[$this].cells.item(1).innerHTML
+           document.getElementById('editspecific').value = document.getElementById("print").rows[$this].cells.item(2).innerHTML
+           document.getElementById('editmobile').value = document.getElementById("print").rows[$this].cells.item(3).innerHTML
+           document.getElementById('editmail').value = document.getElementById("print").rows[$this].cells.item(4).innerHTML 
+           document.getElementById('editaddress').value = document.getElementById("print").rows[$this].cells.item(5).innerHTML
+           document.getElementById('editdob').value = document.getElementById("print").rows[$this].cells.item(6).innerHTML
+           document.getElementById('editdoj').value = document.getElementById("print").rows[$this].cells.item(7).innerHTML
+          
+         }
+   
+       })
+   
+   
+    var x=[];
+           $(document).ready(function(){
+                 $("#fileUploader").change(function(evt){
+                       var selectedFile = evt.target.files[0];
+                       var reader = new FileReader();
+                       reader.onload = function(event) {
+                         var data = event.target.result;
+                         var workbook = XLSX.read(data, {
+                             type: 'binary'
+                         });
+                         workbook.SheetNames.forEach(function(sheetName) {
+                             var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                             var json_object = JSON.stringify(XL_row_object);
+                             var data = jQuery.parseJSON(json_object);
+                             // alert(XL_row_object);//send this
+                             // alert(json_object);
+                             // alert(data)
+                             var url='/userdetailfile'
+                             var posting = $.post(url,{content: json_object});
+                             posting.done(function (data){ 
+                               if(data=="ok"){
+                                 window.location.reload()
+                               }
+                             })
+   
+                           })
+                       };
+   
+                       reader.onerror = function(event) {
+                         console.error("File could not be read! Code " + event.target.error.code);
+                       };
+   
+                       reader.readAsBinaryString(selectedFile);
+                 });
+           });
+</script>
+</html>
+

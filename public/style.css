@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+html,
+body {
+  height: 100%;
+  line-height:0.75;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: url("images/blue.png") no-repeat 50%;
+  background-size:cover;
+  background-position: center; 
+
+}
+
+h1,h3,h5{
+  font-family: 'Roboto', sans-serif;
+  }
+
+.form-style{
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-style .checkbox {
+  font-weight: 400;
+}
+.form-style .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 15px;
+}
+.form-style .form-control:focus {
+  z-index: 2;
+}
+
+.card button:hover{
+  transform: scale(1.010,1.010);
+  transition-delay: 2s ease-in-out;
+}
+
+.card:hover {
+  top: -2px;
+  left: -2px;
+  box-shadow: 0.5px 0.5px 3px 0px rgba(82, 82, 82, 0.85);
+  transition-delay: 2s ease-in-out;
+}
+.card:active {
+  top: 0px;
+  left: 0px;
+  box-shadow: inset 0 0 0px rgba(82, 82, 82, 0.85);
+  transition-delay: 2s ease-in-out;
+}
+
+.card {
+  background-color:  #C0C0C0;
+  
+}
+
+
+
+
+
+
+
+
+
+.material-icons { font-size: 0px; }
+.material-icons { color: rgba(0, 0, 0); }
+/* .material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); } */
+

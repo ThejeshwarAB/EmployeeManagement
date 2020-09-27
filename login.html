@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Agaram|Login</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="public/style.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="public/style.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" href="style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+   </head>
+   <body>
+      <nav class="navbar navbar-light bg-light shadow p-3 mb-5 bg-white rounded" style="padding: 15px; position: fixed; top: 0; width: 100%">
+         <div class="navbar-brand mx-auto">
+            <img alt="Logo" width="200" height="30" src="images/Logo.png">
+         </div>
+         <!--  <div class="d-flex justify-content-center" align="center"><img alt="Logo" width="200" height="30" src="public/images/Logo.png"></div> -->
+         <!-- <span class="navbar-brand">Heading</span> -->
+      </nav>
+      <div class="d-flex mx-auto align-items-stretch" style=" width: 90%; height: 80%;">
+         <!-- <h3 id="header" class="d-block p-2 text-dark fixed-top" ></h3> -->
+         <div class=" w-100 bd-highlight text-center" >
+            <!-- <h1 class="h3 mb-3 font-weight-normal">About us</h1>  -->
+            <h1 class="h3 mb-3 font-weight-normal text-center">About us</h1>
+            <div class="shadow" style="text-align: justify; line-height: 25px; background:#cdcbc7; border-radius: 10px; padding: 15px; margin: 15px;">
+               <div class="row d-flex flex-shrink-1 justify-content-center">
+                  <div class="col-12">
+                     Agaram Technologies is a startup founded by three aspiring software professional, who worked extensively in enterprise software consulting and implementation. With much passion for the paced growth of the web application and allied professionals who worked extensively in enterprise software consulting.
+                  </div>
+               </div>
+               <div class="row d-flex justify-content-center">
+                  <div class="col-6">
+                     <h5 class="text-center"><br>Our motto</h5>
+                     <p>
+                        Residing in a rapidly revolutionizing era, what you desire are personnel who are equipped with lateral stuff to take on-spot decisions.
+                     </p>
+                     <ul>
+                        <li>Customer Service and Satisfaction</li>
+                        <li>Qualitative service</li>
+                        <li>On time Value addition</li>
+                        <!-- <li>Employee growth and satisfaction</li> -->
+                     </ul>
+                  </div>
+                  <div class="col-6">
+                     <h5 class="text-center"><br>Why Agaram?</h5>
+                     <ul>
+                        <li>We are more of a consultant favoring your needs , rather than a reseller
+                           We offer not just products, but complete technology filled packages uncovering installation, management and post-sales services
+                        </li>
+                        <li>We believe in single-window application development that makes it easier to deploy and manage.</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class=" flex-shrink-1 bd-highlight text-center">
+            <div class="row">
+               <div class="col-12" >
+                  <h1 class="h3 font-weight-normal text-center">Login here</h1>
+                  <form class="form-style" action="/login.html" method="POST" id="search">
+                     <div class="shadow" style="border-radius: 10px; padding: 15px; background: #c1beba; height: 60%;">
+                        <div class="form-group row" >
+                           <label class="col-sm-2 col-form-label col-form-label-lg" for="inputUsername">Username</label>
+                           <div class="col-sm-12">
+                              <input type="username" id="inputUsername" name="inputUsername" class="form-control" placeholder="Enter username" required autofocus>
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label  class="col-sm-2 col-form-label col-form-label-lg" for="inputPassword">Password</label>
+                           <div class="col-sm-12"> 
+                              <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Enter password" required>
+                           </div>
+                        </div>
+                        <br/>
+                        <button class="btn btn-lg btn-light btn-block" type="submit" id="submit" name="submit" target="_blank" style="font-size: 0.8em;">Login</button>
+                        <br/>
+                        <br/>
+                        <button class="btn col-12" data-toggle="modal" data-target="#exampleModalCenter" target="_blank" style="font-size: 0.8em;">Create new user</button>
+                     </div>
+                  </form>
+                  <!--  <div class="shadow text-justify" style="font-size: 0.8em;  background: lightpink; border-radius: 10px;  line-height: 25px; padding: 15px; margin: 15px;"> 
+                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                     </div>
+                     -->
+               </div>
+            </div>
+            <!--     <div>
+               <marquee direction="right" class="fixed-bottom" vspace="3%" scrollamount="7">
+               <ul>
+               &#8226 Data Conversion
+               &#8226 Software Development & Products
+               &#8226 Human Resource Consulting
+               &#8226 Training & Placements
+               &#8226
+               </ul>
+               </marquee>
+               </div> -->
+            <div class="form-style">
+               <!--  <button class="btn btn-ligth col-12" data-toggle="modal" data-target="#exampleModalCenter" target="_blank" style="font-size: 0.8em;">Create new user</button> -->
+               <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h5 class="modal-title" id="exampleModalLongTitle">Enter user details</h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                        <div class="modal-body" style="background-color: #D3D3D3;">
+                           <form class="form-style" action="/" method="POST" id="newuser">
+                              <label for="empid">Employee id</label>
+                              <input type="id" id="empid" name="empid" class="form-control" placeholder="Employee id" required autofocus><br>
+                              <label for="newUsername">Username</label>
+                              <input type="username" id="newUsername" name="newUsername" class="form-control" placeholder="Username" required autofocus><br>
+                              <label for="newMobile" >MobileNo</label>
+                              <input type="number" id="newMobile" name="newMobile" class="form-control" placeholder="Mobile No" required><br>
+                              <label for="newMail">MailID</label>
+                              <input type="email" id="newMail" name="newMail" class="form-control" placeholder="Mail ID" required><br>
+                              <label for="specific">Specfication</label>
+                              <input type="text" id="specific" name="specific" class="form-control" placeholder="Specification" required><br>
+                              <label for="address">Address</label>
+                              <input type="text" id="address" name="address" class="form-control" placeholder="Address" required><br>
+                              <div class="row">
+                                 <div class="col-6">
+                                    <label for="dob">D.O.B</label>
+                                    <input type="date" id="dob" class="form-control" value="new Date()" placeholder="D.O.B" required autofocus>
+                                 </div>
+                                 <div class="col-6">
+                                    <label for="doj">D.O.J</label>
+                                    <input type="date" id="doj" class="form-control" value="new Date()" placeholder="D.O.J" required autofocus>
+                                 </div>
+                              </div>
+                              </br>
+                              <label for="newPassword">Password</label>
+                              <input type="password" id="newPassword" name="newPassword" class="form-control" placeholder="Password" required><br>
+                              <label for="newConfirmPassword">Confrim Password</label>
+                              <input type="password" id="newConfirmPassword" name="newConfirmPassword" class="form-control" placeholder="Confirm Password" required><br>
+                              <br>
+                              <label for="statusToggle" class="sr-only">Admin status</label>
+                              <!-- <input type="checkbox" id="adminToggle" class="form-control" checked data-toggle="toggle" data-on="Admin" data-off="User" data-width="100" data-onstyle="success" data-offstyle="primary">                  -->
+                              <!-- <div id="opt"> -->
+                              <label class="radio-inline"><input type="radio" name="optradio" value="Admin" checked> Admin </label>
+                              <label class="radio-inline"><input type="radio" name="optradio" value="User"> User </label>
+                              <!-- </div> -->
+                              <br><br>
+                              <div class="modal-footer">
+                                 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                 <!-- <button class="btn btn-primary" type="button" onclick="check()">Click me</button> -->
+                                 <button class="btn btn-primary test_btn" id="create" type="submit" name="submit">Add user</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--  <div style="background: lightpink; border-radius: 10px; line-height: 20px;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. 
+            </div> -->
+      </div>
+      <!-- Footer -->
+      <div>
+         <marquee direction="right" class="fixed-bottom" vspace="3%" scrollamount="7">
+            <h6>
+               <ul><small>
+                  &#8226 Data Conversion
+                  &#8226 Software Development & Products
+                  &#8226 Human Resource Consulting
+                  &#8226 Training & Placements
+                  &#8226
+                  </small>
+               </ul>
+            </h6>
+         </marquee>
+      </div>
+      <footer class="page-footer font-small bg-light shadow-sm bg-white rounded" style="position: fixed; bottom: 0; width: 100%">
+         <!-- Copyright -->
+         <div class="footer-copyright text-center py-2">
+            <span class="material-icons" style="font-size: 15px;">call</span>
+            <span>+91-44-26580262</span>
+            &nbsp &nbsp
+            <span class="material-icons" style="font-size: 15px;">email</span>
+            <span>contact@agaramtechnologies.com</span>
+            <small>
+               <div style="padding-top: 10px;">
+                  Copyright &copy 2020. 
+                  <href> Agaram technologies. </href>
+                  All rights reserved.
+               </div>
+            </small>
+         </div>
+         <!-- Copyright -->
+      </footer>
+      <div class="myAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Success!</strong> Login Successful
+      </div>
+      <div class="danAlert-top alert alert-danger fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Danger!</strong> Invalid User
+      </div>
+      <div class="creAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Success!</strong> User Created Successful
+      </div>
+      <div class="reAlert-top alert alert-success fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Please!</strong> Re-Enter the value 
+      </div>
+      </div>
+   </body>
+   <script>
+      window.onload = function(event){
+      event.preventDefault()
+      }
+      
+      function myAlert(){
+      $(".myAlert-top").show();
+      setTimeout(function(){
+      // event.preventDefault()
+      $(".myAlert-top").fadeTo(0, 250).slideUp(250, function(){
+        $(".myAlert-top").slideUp(250);
+      })
+      }, 2000);
+      }
+      
+      function reAlert(){
+      $(".reAlert-top").show();
+      setTimeout(function(){
+      // event.preventDefault()
+      $(".reAlert-top").fadeTo(0, 250).slideUp(250, function(){
+        $(".reAlert-top").slideUp(250);
+      })
+      }, 2000);
+      }
+      
+      
+      function danAlert(){
+      $(".danAlert-top").show();
+      setTimeout(function(){
+      // event.preventDefault()
+      $(".danAlert-top").fadeTo(0, 250).slideUp(250, function(){
+        $(".danAlert-top").slideUp(250);
+      })
+      }, 2000);
+      }
+      
+      function creAlert(){
+      //event.preventDefault()
+      $(".creAlert-top").show();
+      setTimeout(function(){
+      $(".creAlert-top").fadeTo(0, 250).slideUp(250, function(){
+        $(".creAlert-top").slideUp(250);
+      })
+      }, 2000);
+      }
+      
+      
+      $("#search").submit(function(event){
+        event.preventDefault()
+        var $form = $(this),
+        url = $form.attr('action')
+        var posting = $.post( url, {user: $('#inputUsername').val(), pass: $('#inputPassword').val()} )
+        posting.done(function(data){
+            if(data!=""){
+            //alert(data["username"])
+            myAlert()
+            setTimeout(() => { console.log("Alert called"); }, 2000);
+            if(data["adminStatus"]==true)
+              window.location.href = 'admin.html'
+            else 
+              window.location.href = 'user.html'
+           
+            }  
+            else{
+            // alert("Invalid user")
+           //changes made here
+           danAlert()
+           setTimeout(() => { console.log("Alert called"); }, 2000);}
+          })
+      })
+      
+        $("#newuser").submit(function(event){
+        event.preventDefault()
+        if($('#newMobile').val().length!=10){ 
+          console.log($('#newMobile').val());
+          console.log($('#newMobile').val().length);
+          alert('Not a valid number')
+          return false;
+        }
+        $('.close').click();    
+        if( $('#newPassword').val() == $('#newConfirmPassword').val()){
+        var admin = $("input[name = 'optradio']:checked").val()
+        var $form = $(this),
+        url = $form.attr('action')
+        var posting = $.post( url, {
+                                    empid:$('#empid').val(),
+                                    newuser: $('#newUsername').val(), 
+                                    newpass: $('#newPassword').val(),
+                                    adminStatus: Boolean(admin=="Admin"), 
+                                    newmail: $('#newMail').val(), 
+                                    newmobile: $('#newMobile').val(),
+                                    specific: $('#specific').val(),
+                                    address:$('#address').val(),
+                                    dob:$('#dob').val(),
+                                    doj:$('#doj').val(),
+                                    work: [],
+                                    workCount: 0,
+                                    // flag: 0,
+                                    })
+      posting.done(function(data){
+           if(data=="ok"){
+         // alert("New User added")
+        // $('#exampleModalCenter').modal('hide')
+         creAlert()
+         setTimeout(() => { console.log("Alert called"); }, 2000);
+          window.location.reload()}
+          })}
+      else{
+        //alert("Re-enter values")
+        reAlert()
+        setTimeout(() => { console.log("Alert called"); }, 2000);
+        }
+        })
+      
+   </script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</html>
+

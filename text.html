@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Text</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+      <link rel="stylesheet" href="public/style.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <nav class="navbar navbar-light bg-light shadow p-3 mb-5 bg-white rounded" style="padding: 15px; position: fixed; top: 0; width: 100%">
+         <div class="navbar-brand mx-auto">
+            <img alt="Logo" width="200" height="30" src="images/Logo.png">
+         </div>
+         <!--  <div class="d-flex justify-content-center" align="center"><img alt="Logo" width="200" height="30" src="public/images/Logo.png"></div> -->
+         <!-- <span class="navbar-brand">Heading</span> -->
+      </nav>
+      <h3 id="header" class="d-block p-2 text-dark fixed-top" style="margin: 15px"></h3>
+      <div class="container my-1 text-center" align="center" style="width: 100%;height: 80%;">
+         <h4>Word Count</h4>
+         <h5 align="left">Text Area 1:</h5>
+         <textarea rows="3" class="form-control my-3" id="passageOne" style="width: 100% ;overflow: auto; resize: none;" placeholder="Enter 1st passage"></textarea>
+         <h5 align="left">Text Area 2:</h5>
+         <textarea rows="3" class="form-control my-3" id="passageTwo" style="width: 100%; overflow: auto; resize: none;" placeholder="Enter 2nd passage"></textarea>
+         <button type="button" onclick="findCommon()" class="btn btn-primary">Check on click</button>
+         <textarea rows="3" class="form-control my-3" id="passageThree" style="width: 100%; overflow: auto; resize: none;" placeholder="The required details will be shown here"readonly ></textarea>
+      </div>
+      <div class="row fixed-top col-12">
+         <div class="text-left col-6"><button id="back" class="btn btn-secondary" style="margin: 15px">Back</button></div>
+         <div class="text-right col-6"><button id="logout" class="btn btn-danger" style="margin: 15px">Logout</button></div>
+      </div>
+      <footer class="page-footer font-small bg-light shadow-sm bg-white rounded" style="position: fixed; bottom: 0; width: 100%">
+         <!-- Copyright -->
+         <div class="footer-copyright text-center py-3">
+            <span class="material-icons" style="font-size: 15px;">call</span>
+            <span>+91-44-26580262</span>
+            &nbsp &nbsp
+            <span class="material-icons" style="font-size: 15px;">email</span>
+            <span>contact@agaramtechnologies.com</span>
+         </div>
+         <!-- Copyright -->
+      </footer>
+   </body>
+   <script>
+      $("#logout").click(function(event){
+      event.preventDefault()
+      //alert("You are logging out")//use Bootstrap alert
+      outAlert()
+      var posting = $.post("/logout",{})
+      posting.done(function(data){
+        if(data=="ok")
+        window.location.href = "/"
+        })
+      })
+      $("#back").click(function(event){
+      event.preventDefault()
+      //alert("You are logging out")//use Bootstrap alert
+      var posting = $.post("/back",{})
+      posting.done(function(data){
+        if(data=="ok")
+        window.location.href = "/admin.html"
+      })
+      })
+      
+      Set.prototype.intersection = function(otherSet) 
+      { 
+       var intersectionSet = new Set(); 
+       for(var elem of otherSet) 
+       { 
+           if(this.has(elem)) 
+               intersectionSet.add(elem); 
+       } 
+      return intersectionSet;                 
+      }
+      
+      function findCommon(){
+      var first = $("#passageOne").val() 
+      var second = $("#passageTwo").val() 
+      var a = first.split(' ')
+      var b = second.split(' ')
+      
+      var one = new Set(a)
+      var two = new Set(b)
+      var c = one.intersection(two); 
+      c = Array.from(c);
+      // alert(c)
+      if(c.length==0){
+      document.getElementById("passageThree").innerHTML="Word count in 1st passage: "+a.length+"\nWord count in 2nd passage: "+b.length+"\nNo common unique words"
+      } 
+      else{
+      document.getElementById("passageThree").innerHTML="Word count in 1st passage: "+a.length+"\nWord count in 2nd passage: "+b.length+"\nCommon unique word count: " + c.length
+      }
+      }
+      
+   </script>
+</html>
+

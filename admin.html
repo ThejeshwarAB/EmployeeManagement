@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<head>
+   <title>Agaram|AdminDashboard</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="/css/bootstrap.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+   <nav class="navbar navbar-light bg-light shadow p-3 mb-5 bg-white rounded" style="padding: 15px; position: fixed; top: 0; width: 100%">
+      <div class="navbar-brand mx-auto">
+         <img alt="Logo" width="200" height="30" src="images/Logo.png">
+      </div>
+      <!--  <div class="d-flex justify-content-center" align="center"><img alt="Logo" width="200" height="30" src="public/images/Logo.png"></div> -->
+      <!-- <span class="navbar-brand">Heading</span> -->
+   </nav>
+   <h3 id="header" class="d-block p-2 text-dark fixed-top" style="margin: 15px"></h3>
+   <div class="container">
+      <div class="row">
+         <!-- Grid column -->
+         <div class="col">
+            <!--Card-->
+            <div class="card" style="background-color:  #C0C0C0;">
+               <!--Card image-->
+               <div class="view">
+                  <img src="images/manageemp.jpg" style= "height:135%" class="card-img-top"
+                     alt="photo">
+                  <a href="#">
+                     <div class="mask rgba-white-slight"></div>
+                  </a>
+               </div>
+               <!--Card content-->
+               <div class="card-body text-center">
+                  <!--Title-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <h4 class="card-title">Assign work</h4>
+                  <!--Text-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <form action="/admintable.html" method="POST">
+                     <button class="btn btn-light col-12" type="submit" id="table">Click here</button>
+                  </form>
+               </div>
+            </div>
+            <!--/.Card-->
+         </div>
+         <div class="col">
+            <!--Card-->
+            <div class="card">
+               <!--Card image-->
+               <div class="view">
+                  <img src="images/updatead.jpeg" style= "height:135%" class="card-img-top"
+                     alt="photo">
+                  <a href="#">
+                     <div class="mask rgba-white-slight"></div>
+                  </a>
+               </div>
+               <!--Card content-->
+               <div class="card-body text-center">
+                  <!--Title-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <h4 class="card-title">Update profile</h4>
+                  <!--Text-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <form action="/update.html" method="POST">
+                     <button class="btn btn-light col-12" type="submit" id="update">Click here</button>
+                  </form>
+               </div>
+            </div>
+            <!--/.Card-->
+         </div>
+         <div class="col">
+            <!--Card-->
+            <div class="card">
+               <!--Card image-->
+               <div class="view">
+                  <img src="images/article.jpg" class="card-img-top" style= "height:135%" alt="photo">
+                  <a href="#">
+                     <div class="mask rgba-white-slight"></div>
+                  </a>
+               </div>
+               <!--Card content-->
+               <div class="card-body text-center">
+                  <!--Title-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <h4 class="card-title">Article info</h4>
+                  <!--Text-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <form action="/article.html" method="POST">
+                     <button class="btn btn-light col-12" type="submit" id="table">Click here</button>
+                  </form>
+               </div>
+            </div>
+            <!--/.Card-->
+         </div>
+         <div class="col">
+            <!--Card-->
+            <div class="card">
+               <!--Card image-->
+               <div class="view">
+                  <img src="images/updatead.jpeg" class="card-img-top" style= "height:135%" alt="photo">
+                  <a href="#">
+                     <div class="mask rgba-white-slight"></div>
+                  </a>
+               </div>
+               <!--Card content-->
+               <div class="card-body text-center">
+                  <!--Title-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <h4 class="card-title">Employee info</h4>
+                  <!--Text-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <form action="/userdetail.html" method="POST">
+                     <button class="btn btn-light col-12" type="submit" id="update">Click here</button>
+                  </form>
+               </div>
+            </div>
+            <!--/.Card-->
+         </div>
+         <div class="col">
+            <!--Card-->
+            <div class="card">
+               <!--Card image-->
+               <div class="view">
+                  <img src="images/updatead.jpeg" class="card-img-top" style= "height:135%" alt="photo">
+                  <a href="#">
+                     <div class="mask rgba-white-slight"></div>
+                  </a>
+               </div>
+               <!--Card content-->
+               <div class="card-body text-center">
+                  <!--Title-->
+                  <p class="card-text">
+                     <br>
+                  </p>
+                  <h5 class="card-title">Common Words</h5>
+                  <!--Text-->
+                  <br/>
+                  <p class="card-text">
+                  </p>
+                  <form action="/text.html" method="POST">
+                     <button class="btn btn-light col-12" type="submit" id="update">Click here</button>
+                  </form>
+               </div>
+            </div>
+            <!--/.Card-->
+         </div>
+         <!-- <div class="col">
+            <div class="card">
+              <div class="view">
+                <img src="images/manageemp.jpg" class="card-img-top" style= "height:140%" alt="photo">
+                <a href="#">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>y text-center">
+                <p class="card-text">
+                  <br>
+                </p>
+                <h6 class="card-title">File upload</h6>
+                <p class="card-text">
+                  <br>
+                </p>
+                <form action="/file.html" method="POST">
+                 <button class="btn btn-light col-12" type="submit" id="update">Click here</button>
+              </form>
+              </div>
+            </div> -->
+      </div>
+   </div>
+   </div>
+   <div class="fixed-top text-right"><button id="logout" class="btn btn-danger" style="margin: 15px">Logout</button></div>
+   <div class="msAlert-top alert  fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Successfully</strong>Redirecting to Table!!
+   </div>
+   <div class="outAlert-top alert  fixed-top" style="display:none; margin: 25px; left: 25%;  width: 50%;">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Log-Out</strong>!!!
+   </div>
+   <footer class="page-footer font-small bg-light shadow-sm bg-white rounded" style="position: fixed; bottom: 0; width: 100%">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+         <span class="material-icons" style="font-size: 15px;">call</span>
+         <span>+91-44-26580262</span>
+         &nbsp &nbsp
+         <span class="material-icons" style="font-size: 15px;">email</span>
+         <span>contact@agaramtechnologies.com</span>
+      </div>
+      <!-- Copyright -->
+   </footer>
+</body>
+<script>
+   function msAlert(){
+     //event.preventDefault()
+     $(".msAlert-top").show();
+     setTimeout(function(){
+     $(".msAlert-top").fadeTo(0, 250).slideUp(250, function(){
+       $(".msAlert-top").slideUp(250);
+     })
+     }, 2000);
+   }
+   
+   function outAlert(){
+       //event.preventDefault()
+       $(".outAlert-top").show();
+       setTimeout(function(){
+       $(".outAlert-top").fadeTo(0, 250).slideUp(250, function(){
+         $(".outAlert-top").slideUp(250);
+       })
+       }, 2000);
+     }
+   
+   window.onload = function(event){
+     // console.log("This is working")
+     event.preventDefault()
+     var url = '/admin.html'
+     var posting = $.post( url )
+     posting.done(function(data){
+       // alert("Hello "+data.user)
+       // $("#header").html="Hello, "+data.user
+       document.getElementById("header").innerHTML = "Hello, "+data.user
+     })
+   }
+   
+   $("#update").submit(function(event){
+     event.preventDefault()
+     // var $form = $(this),
+     var url = $form.attr('action')
+     var posting = $.post( url )
+     posting.done(function(data){
+     window.location.href = "update.html"
+      })
+   })
+   
+   $("#logout").click(function(event){
+     event.preventDefault()
+      outAlert()
+     var posting = $.post("/logout",{})
+     posting.done(function(data){
+       if(data=="ok")
+       window.location.href = "/"
+     })
+   })
+   
+   $("#table").submit(function(event){
+     event.preventDefault()
+     msAlert()
+     var url = $form.attr('action')
+     var posting = $.post( url )
+     posting.done(function(data){
+     window.location.href = "admintable.html"
+      })
+   })
+   
+</script>
+</html>
+

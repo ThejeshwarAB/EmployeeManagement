@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>    
+<title> Convert Excel File To JSON </title>
+<head>
+   <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.6/xlsx.full.min.js"> </script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script>
+      var x=[];
+        $(document).ready(function(){
+              $("#fileUploader").change(function(evt){
+                    var selectedFile = evt.target.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                      var data = event.target.result;
+                      var workbook = XLSX.read(data, {
+                          type: 'binary'
+                      });
+                      workbook.SheetNames.forEach(function(sheetName) {
+                          var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                          var json_object = JSON.stringify(XL_row_object);
+                          var data = jQuery.parseJSON(json_object);
+                          alert(XL_row_object);//send this
+                          alert(json_object);
+                          alert(data)
+                          var url='/articlefile'
+                          var posting = $.post(url,{content: json_object});
+                          posting.done(function (data){ 
+                            alert(data);
+                          })
+      
+                        })
+                    };
+      
+                    reader.onerror = function(event) {
+                      console.error("File could not be read! Code " + event.target.error.code);
+                    };
+      
+                    reader.readAsBinaryString(selectedFile);
+              });
+        });
+      // var XLSX = require('xlsx');
+      // var workbook = XLSX.readFile($("#fileUploader"));
+      // var sheet_name_list = workbook.SheetNames;
+      // console.log(XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]]))
+   </script>
+</head>
+<body>
+   <input type="file" id="fileUploader" name="fileUploader" accept=".xls, .xlsx"/><br/></br>
+   </br></br>
+</body>
+</html>
+
